@@ -6,7 +6,11 @@ MAIN_URL = "https://scratchapiplus.mel0n7.repl.co/"
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+  return render_template('home.html')
+
+@app.route('/info')
+def info():
+  return render_template('info.html')
 
 @app.route('/settings')
 def settings():

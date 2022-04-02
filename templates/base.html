@@ -6,27 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <script src="{{ url_for('static', filename='js/active.js') }}" defer></script>
     <title>Scratch+ - {% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
 </head>
 <body>
   <nav>
     <ul class="horizontal-list">
-      <li class="home">
+      <li id="home">
         <i class="bx bx-home"></i>
-        <a href="">Home</a>
+        <a href="/">Home</a>
       </li>
-      <li class="fourms">
+      <li id="fourms">
         <i class='bx bx-message-square-dots'></i>
-        <a href="">Forums</a>
+        <a href="/fourms">Forums</a>
       </li>
-      <li class="projects">
+      <li id="projects">
         <i class='bx bx-play-circle'></i>
-        <a href="">Projects</a>
+        <a href="/projects">Projects</a>
       </li>
-      <li class="info">
+      <li id="info">
         <i class='bx bx-info-circle' ></i>
-        <a href="">Info</a>
+        <a href="/info">Info</a>
+      </li>
+      <li id="settings">
+        <i class='bx bx-cog' ></i>
+        <a href="/settings">Settings</a>
       </li>
     </ul>
   </nav>
