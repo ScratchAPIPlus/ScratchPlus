@@ -5,6 +5,7 @@
 {% endblock %}
 {% block body %}
   <div class="basic-info">
+    <img src="https://uploads.scratch.mit.edu/get_image/user/{{ user['id'] }}_125x125.png" alt="{{ user['username'] }}">
     <h1>{{ user['username'] }}</h1>
     <span>#{{ user['id'] }}</span>
   </div>
