@@ -5,16 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Scratch+ - {% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
 </head>
 <body>
   <nav>
-    <ul>
-      <li>Home</li>
-      <li>Fourms</li>
-      <li>Projects</li>
-      <li>Info</li>
+    <ul class="horizontal-list">
+      <li class="home">
+        <i class="bx bx-home"></i>
+        <a href="">Home</a>
+      </li>
+      <li class="fourms">
+        <i class='bx bx-message-square-dots'></i>
+        <a href="">Forums</a>
+      </li>
+      <li class="projects">
+        <i class='bx bx-play-circle'></i>
+        <a href="">Projects</a>
+      </li>
+      <li class="info">
+        <i class='bx bx-info-circle' ></i>
+        <a href="">Info</a>
+      </li>
     </ul>
   </nav>
   {% block body %}{% endblock %}
