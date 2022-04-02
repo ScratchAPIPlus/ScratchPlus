@@ -29,12 +29,12 @@ nav>ul {
 nav>ul>li {
   margin: 1rem;
   font-weight: 900;
-  font-size: 1.5em;
-  padding: 1rem;
+  font-size: 1.2em;
+  padding: 2%;
   display: flex;
   justify-items: center;
-  border-radius: 16px;
-  width: min-content;
+  border-radius: 10px;
+  width: 100%;
   transition: background-color 0.5s ease-in-out;
 }
 nav>ul>li:hover {

@@ -9,6 +9,9 @@ ul.following, ul.followers {
   display: flex;
   flex-wrap: wrap;
 }
+ul.following>li>a, ul.followers>li>a {
+  font-size: 80%;
+}
 ul.following>li>a>img, ul.followers>li>a>img, .basic-info>img {
   width: 3em;
   height: 3em;
