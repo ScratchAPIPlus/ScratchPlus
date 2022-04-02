@@ -6,8 +6,12 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+@app.route('/settings')
+def settings():
+  return render_template('settings.html')
+
 @app.route('/users/<username>')
-def home():
+def user(username):
     user = requests.get('https://scratchapiplus.mel0n7.repl.co/api/v1/users/' + username).json()
     return render_template('user.html', user=user)
 

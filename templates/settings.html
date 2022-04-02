@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+{% block head %}
+  <script defer>
+    function getIndex(select,value){
+      return select.options.findIndex(value)
+    }
+    var theme = document.getElementById("theme")
+    console.log(theme)
+    if (theme == null){
+      localStorage.setItem("theme","light-theme")
+    }
+    theme.selectedIndex = getIndex(theme, localStorage.getItem("theme") + "-theme")
+    theme.addEventListener("change", () => {
+      localStorage.setItem("theme", theme.options[theme.selectedIndex].value)
+    })
+  </script>
+{% endblock %}
+{% block body %}
+  <h1>Settings</h1>
+  <label>
+    Theme
+    <select name="theme" id="theme">
+      <option value="light-theme">Light Theme</option>
+      <option value="dark-theme">Dark Theme</option>
+    </select>
+  </label>
+  <label>
+    Navigation Bar Colour
+    <input type="color" id="nav-bar-colour">
+  </label>
+{% endblock %}
