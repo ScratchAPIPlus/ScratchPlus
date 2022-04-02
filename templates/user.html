@@ -8,4 +8,43 @@
     <h1>{{ user['username'] }}</h1>
     <span>#{{ user['id'] }}</span>
   </div>
+  <div>
+    <h2>Projects</h2>
+    <ul class="projects">
+      {% for project in user['projects'] %}
+        <li>
+          <a href="/projects/{{ project['id'] }}">
+            <img src="{{ url_for('static', filename='images/' + project['image']) }}" alt="{{ project['name'] }}">
+            <h2>{{ project['name'] }}</h2>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Following</h2>
+    <ul class="following">
+      {% for following in user['following'] %}
+        <li>
+          <a href="/users/{{ following['username'] }}">
+            <img src="https://uploads.scratch.mit.edu/get_image/user/{{ following['image_id'] }}_125x125.png" alt="{{ following['username'] }}">
+            <h2>{{ following['username'] }}</h2>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Followers</h2>
+    <ul class="followers">
+      {% for follower in user['following'] %}
+        <li>
+          <a href="/users/{{ follower['username'] }}">
+            <img src="https://uploads.scratch.mit.edu/get_image/user/{{ follower['image_id'] }}_125x125.png" alt="{{ follower['username'] }}">
+            <h2>{{ follower['username'] }}</h2>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}

@@ -1,3 +1,14 @@
 .basic-info {
   display: inline;
 }
+ul.following, ul.followers {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+ul.following>li>a>img, ul.followers>li>a>img {
+  width: 3em;
+  height: 3em;
+  border-radius: 10%;
+  margin: 0.5em;
+}

@@ -8,6 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <script src="{{ url_for('static', filename='js/active.js') }}" defer></script>
     <title>Scratch+ - {% block title %}{% endblock %}</title>
+    <noscript>Enable Javascript to view this website</noscript>
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -35,6 +36,8 @@
       </li>
     </ul>
   </nav>
-  {% block body %}{% endblock %}
+  <div class="content">
+    {% block body %}{% endblock %}
+  </div>
 </body>
 </html>
