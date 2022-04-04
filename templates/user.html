@@ -5,7 +5,7 @@
 {% endblock %}
 {% block body %}
   <div class="basic-info">
-    <img src="https://uploads.scratch.mit.edu/get_image/user/{{ user['id'] }}_125x125.png" alt="{{ user['username'] }}">
+    <img class="user-image" src="https://uploads.scratch.mit.edu/get_image/user/{{ user['id'] }}_125x125.png" alt="{{ user['username'] }}">
     <h1>{{ user['username'] }}</h1>
     <span>#{{ user['id'] }}</span>
   </div>
@@ -15,8 +15,8 @@
       {% for project in user['projects'] %}
         <li>
           <a href="/projects/{{ project['id'] }}">
-            <img src="{{ url_for('static', filename='images/' + project['image']) }}" alt="{{ project['name'] }}">
-            <h2>{{ project['name'] }}</h2>
+            <img class="project-image" src="https://uploads.scratch.mit.edu/get_image/project/{{ project['id'] }}_296x222.png" alt="{{ project['name'] }}">
+            {{ project['title'] }}
           </a>
         </li>
       {% endfor %}
@@ -28,7 +28,7 @@
       {% for following in user['following'] %}
         <li>
           <a href="/users/{{ following['username'] }}">
-            <img src="https://uploads.scratch.mit.edu/get_image/user/{{ following['image_id'] }}_125x125.png" alt="{{ following['username'] }}">
+            <img class="user-image" src="https://uploads.scratch.mit.edu/get_image/user/{{ following['id'] }}_125x125.png" alt="{{ following['username'] }}">
             <h2>{{ following['username'] }}</h2>
           </a>
         </li>
@@ -38,12 +38,39 @@
   <div>
     <h2>Followers</h2>
     <ul class="followers">
-      {% for follower in user['following'] %}
+      {% for follower in user['followers'] %}
         <li>
           <a href="/users/{{ follower['username'] }}">
-            <img src="https://uploads.scratch.mit.edu/get_image/user/{{ follower['image_id'] }}_125x125.png" alt="{{ follower['username'] }}">
+            <img class="user-image" src="https://uploads.scratch.mit.edu/get_image/user/{{ follower['id'] }}_125x125.png" alt="{{ follower['username'] }}">
             <h2>{{ follower['username'] }}</h2>
           </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <h2>Comments</h2>
+    <ul class="comments">
+      {% for comment in comments %}
+        <li class="comment">
+          <div class="top-level">
+            <a href="/users/{{comment['user']['username']}}">
+              <img class="user-image" src="https://uploads.scratch.mit.edu/get_image/user/{{ comment['user']['id'] }}_125x125.png" alt="{{ comment['user']['username'] }}">
+              {{comment["user"]["username"]}}
+            </a>
+            {{ comment["comment"] }}
+          </div>
+          <ul class="replies">
+            {% for reply in comment["replies"] %}
+              <li>
+                <a href="/users/{{reply['user']['username']}}">
+                  <img class="user-image" src="https://uploads.scratch.mit.edu/get_image/user/{{ reply['user']['id'] }}_125x125.png" alt="{{ reply['user']['username'] }}">
+                  {{reply["user"]["username"]}}
+                </a>
+                {{ reply["comment"] }}
+              </li>
+            {% endfor %}
+          </ul>
         </li>
       {% endfor %}
     </ul>

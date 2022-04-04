@@ -8,6 +8,9 @@ html, body {
   margin: 0;
   padding: 0;
 }
+ul {
+  padding: 0;
+}
 nav {
   position: fixed;
   display: inline-flex;
@@ -17,6 +20,7 @@ nav {
   margin-right: 1em;
   width: 13%;
   height: 100%;
+  overflow: auto;
 }
 nav>ul {
   width: min-content;
@@ -29,7 +33,7 @@ nav>ul {
 nav>ul>li {
   margin: 1rem;
   font-weight: 900;
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 2%;
   display: flex;
   justify-items: center;
@@ -60,4 +64,12 @@ i.bx {
 }
 .content {
   margin-left: calc(15% + 1rem);
+}
+@media (max-width: 1550px) {
+  i.bx {
+    font-size: 1em;
+  }
+  nav>ul>li {
+    font-size: .8em;
+  }
 }

@@ -12,12 +12,46 @@ ul.following, ul.followers {
 ul.following>li>a, ul.followers>li>a {
   font-size: 80%;
 }
-ul.following>li>a>img, ul.followers>li>a>img, .basic-info>img {
+.user-image {
   width: 3em;
   height: 3em;
   border-radius: 10%;
   margin: 0.5em;
 }
+ul.projects>li>a {
+  display: grid;
+  font-weight: 700;
+  width: min-content;
+}
+.project-image {
+  width: 7em;
+  border-radius: 10%;
+}
 h1 {
   margin: 0;
+}
+ul.projects {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+ul.projects>li {
+  margin: 1%;
+}
+.comments {
+  list-style: none;
+}
+.comment>.top-level {
+  margin: 1%;
+  background: lightgrey;
+  border-radius: 10px 10px 10px 0;
+}
+.comment>.replies>li {
+  margin: 1%;
+  background: lightgrey;
+  border-radius: 10px 10px 10px 0;  
+}
+.replies {
+  padding-left: 5%;
+  list-style: none;
 }

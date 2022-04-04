@@ -2,7 +2,7 @@ from flask import Flask, render_template, send_from_directory
 import requests, os
 app = Flask(__name__)
 
-MAIN_URL = "https://scratchapiplus.mel0n7.repl.co/"
+MAIN_URL = "https://scratchapiplus.mel0n7.repl.co/api/"
 
 @app.route('/')
 def home():
@@ -22,7 +22,8 @@ def settings():
 
 @app.route('/users/<username>')
 def user(username):
-  user = requests.get(f"{MAIN_URL}api/v1/users/{username}").json()
-  return render_template('user.html', user=user)
+  user = requests.get(f"{MAIN_URL}v1/users/{username}").json()
+  comments = requests.get(f"{MAIN_URL}v1/users/{username}/comments").json()
+  return render_template('user.html', user=user, comments=comments)
 
 app.run(host='0.0.0.0', port=8080)
